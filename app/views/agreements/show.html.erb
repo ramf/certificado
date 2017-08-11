@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client name:</strong>
+  <%= @agreement.client_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @agreement.description %>
+</p>
+
+
+<% if @agreement.text != nil %>
+  <p>
+    <strong>Short Descripton:</strong>
+    <%= @agreement.text.shortdescription %>
+  </p>
+
+<% end %>
+
+<% if @agreement.text != nil %>
+<p>
+  <strong>Short Descripton:</strong>
+
+  <%= @agreement.text.description %>
+</p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
+<%= link_to 'Back', agreements_path %>

@@ -1,0 +1,49 @@
+<%= form_with(model: agreement, local: true) do |form| %>
+  <% if agreement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agreement.errors.count, "error") %> prohibited this agreement from being saved:</h2>
+
+      <ul>
+      <% agreement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :client_name %>
+    <%= form.text_field :client_name, id: :agreement_client_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :agreement_description %>
+  </div>
+
+
+<div class="field">
+  <%= form.label :text %>
+
+  <select name="agreement[text_id]" id="agreement_text_id">
+     <option value="">Selecione .... </option>
+
+     <% for t in @texts %>
+         <option value="<%=t.id%>" <%=@agreement.text_id == t.id ? "selected" : "" %>    ><%=t.shortdescription%></option>
+     <% end %>
+   </select>
+
+
+</div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :agreement_price %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
