@@ -10,6 +10,7 @@ class TextsController < ApplicationController
   # GET /texts/1
   # GET /texts/1.json
   def show
+    
   end
 
   # GET /texts/new

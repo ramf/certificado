@@ -20,6 +20,7 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @agreement = Agreement.new
+    @texts = Text.all
   end
 
   # GET /agreements/1/edit
