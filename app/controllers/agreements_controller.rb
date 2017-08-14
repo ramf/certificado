@@ -76,7 +76,8 @@ class AgreementsController < ApplicationController
   # Criamos este método que vai chamar nossa lib para gerar o PDF e depois redirecionar o user para o arquivo PDF
   def export
     if @agreement.text != nil
-       GeneratePdf::agreement(@agreement.client_name, @agreement.description, @agreement.text.description.gsub("{nome}", "<b>" + @agreement.client_name + " </b>"))
+       GeneratePdf::agreement(@agreement.client_name, @agreement.description,
+       @agreement.text.description.gsub("{nome}","<b>"+@agreement.client_name+"</b>"))
        redirect_to '/agreement.pdf'
     else
       respond_to do |format|
