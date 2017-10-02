@@ -1,0 +1,28 @@
+pt-BR:
+  enums:
+    user:
+      role:
+        admin: "Administrador"
+        user: "Usuário"
+        full_access: Acesso Completo
+        restricted_access:  Acesso Restrito
+  activerecord:
+    models:
+      agreement: "Certificado"
+      texts: "Textos"
+      text: "Texto"
+      text1: "Texto:"
+      user: "Usuário"
+    attributes:
+      agreement:
+        client_name: "Nome do Certificado:"
+        description: "Descrição"
+        description2: "Descrição:"
+        text: "Selecione o Texto:"
+        shortdescription: "Nome do Texto"
+        new_text: "Novo Texto"
+      text:
+        shortdescription: "Título do Texto:"
+        description: "Informe o Texto:"
+      user:
+        email: "e-mail"

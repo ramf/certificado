@@ -1,6 +1,7 @@
-<h1>Editing Agreement</h1>
+<h1><%= t("app.edit_agreement")%></h1>
 
 <%= render 'form', agreement: @agreement %>
-
-<%= link_to 'Show', @agreement %> |
-<%= link_to 'Back', agreements_path %>
+<hr>
+<%= link_to t("app.show"), @agreement , class: "btn btn-success" %> |
+<%= link_to t("app.messages.back"), agreements_path, class: "btn btn-success"  %>
+</hr>

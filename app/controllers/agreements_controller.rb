@@ -9,6 +9,8 @@ class AgreementsController < ApplicationController
   def index
     @agreements = Agreement.all
 
+
+
   end
 
   # GET /agreements/1
@@ -19,14 +21,21 @@ class AgreementsController < ApplicationController
 
   # GET /agreements/new
   def new
+    @user = User.new
+    authorize @user
     @agreement = Agreement.new
     @texts = Text.all
   end
 
   # GET /agreements/1/edit
   def edit
-     @texts = Text.all
-  end
+
+    @user = User.new
+    authorize @user
+    @agreement = Agreement.new
+    @texts = Text.all
+
+end
 
   # POST /agreements
   # POST /agreements.json
@@ -66,6 +75,9 @@ class AgreementsController < ApplicationController
   # DELETE /agreements/1
   # DELETE /agreements/1.json
   def destroy
+    @user = User.new
+    authorize @user
+
     @agreement.destroy
     respond_to do |format|
       format.html { redirect_to agreements_url, notice: 'Agreement was successfully destroyed.' }

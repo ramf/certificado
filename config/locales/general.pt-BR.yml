@@ -1,0 +1,16 @@
+pt-BR:
+  app:
+    appname: "Certifique-se"
+    new: "Novo Certificado"
+    new1: "Certificar"
+    show: "Visualizar"
+    edit_agreement: "Editar Certificado"
+    edit: "Editar"
+    destroy: "Apagar"
+    export: "Exportar PDF"
+    menu: "Menu"
+    logout: "Sair"
+    messages:
+      are_you_sure: "Você tem certeza?"
+      edit: "Editar"
+      back: "Voltar"

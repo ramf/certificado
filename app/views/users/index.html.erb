@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("activerecord.models.user") %></h1>
+
+<%= link_to t("app.new", name: t("activerecord.models.user")), new_user_path,  class: "btn btn-sucess" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("activerecord.attributes.agreement.id") %></th>
+      <th><%= t("activerecord.attributes.agreement.name") %></th>
+      <th><%= t("activerecord.attributes.agreement.email") %></th>
+      <th>Tipo de Acesso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role_i18n %></td>
+          <td><%= link_to t('app.show'), user, class: "btn btn-primary" %></td>
+          <td><%= link_to t('app.edit'), edit_user_path(user), class: "btn btn-primary" %></td>
+          <td><%= link_to t('app.destroy'), user, class: "btn btn-danger",method: :delete, data: { confirm: t('app.messages.are_you_sure') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<div>
+  <%=  %>
+</div>

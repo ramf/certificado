@@ -1,5 +1,8 @@
-<h1>New Text</h1>
+<h1><%= t("activerecord.attributes.agreement.new_text") %></h1>
 
 <%= render 'form', text: @text %>
 
-<%= link_to 'Back', texts_path %>
+<br>
+<div class="col-md-12">
+<%= link_to t("app.messages.back"), texts_path, class: "btn btn-success"  %>
+</div>

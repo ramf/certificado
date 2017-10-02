@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Shortdescription:</strong>
+  <strong><%= t("activerecord.attributes.agreement.shortdescription") %>:</strong>
   <%= @text.shortdescription %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t("activerecord.models.text1") %>:</strong>
   <%= @text.description %>
 </p>
 
-<%= link_to 'Edit', edit_text_path(@text) %> |
-<%= link_to 'Back', texts_path %>
+<%= link_to t("app.messages.edit"), edit_text_path(@text) %> |
+<%= link_to t("app.messages.back"), texts_path %>

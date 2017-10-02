@@ -1,32 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Client name:</strong>
-  <%= @agreement.client_name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= @agreement.client_name %></h2>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @agreement.description %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+      <%= link_to t("app.edit"), edit_agreement_path(@agreement), class: "btn btn-danger" %> |
+      <%= link_to 'Voltar', agreements_path, class: "btn btn-success" %>
+    </div>
+  </div>
 
+<hr>
 
+<dl class="dl-horizontal">
+  <dt>
+  <strong><%= t("activerecord.attributes.agreement.client_name") %></strong>
+</dt>
+  <dd> <%= @agreement.client_name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>
+  <strong><%= t("activerecord.attributes.agreement.description2") %></strong>
+</dt>
+  <dd> <%= @agreement.description %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
 <% if @agreement.text != nil %>
-  <p>
-    <strong>Short Descripton:</strong>
-    <%= @agreement.text.shortdescription %>
-  </p>
-
+  <dt>
+  <strong><%= t("activerecord.models.text1") %></strong>
+</dt>
+  <dd><%= @agreement.text.description %></dd>
+</dl>
+</hr>
 <% end %>
-
-<% if @agreement.text != nil %>
-<p>
-  <strong>Short Descripton:</strong>
-
-  <%= @agreement.text.description %>
-</p>
-
-<% end %>
-
-<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
-<%= link_to 'Back', agreements_path %>

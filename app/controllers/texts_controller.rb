@@ -10,16 +10,20 @@ class TextsController < ApplicationController
   # GET /texts/1
   # GET /texts/1.json
   def show
-    
+
   end
 
   # GET /texts/new
   def new
     @text = Text.new
+    @user = User.new
+    authorize @user
   end
 
   # GET /texts/1/edit
   def edit
+    @user = User.new
+    authorize @user
   end
 
   # POST /texts
@@ -55,6 +59,8 @@ class TextsController < ApplicationController
   # DELETE /texts/1
   # DELETE /texts/1.json
   def destroy
+    @user = User.new
+    authorize @user
     @text.destroy
     respond_to do |format|
       format.html { redirect_to texts_url, notice: 'Text was successfully destroyed.' }

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Texts</h1>
+<h1><th><%= t("activerecord.models.texts") %></th></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Shortdescription</th>
-      <th>Description</th>
+      <th><%= t("activerecord.attributes.agreement.shortdescription") %></th>
+      <th><%= t("activerecord.attributes.agreement.description") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,14 +16,15 @@
       <tr>
         <td><%= text.shortdescription %></td>
         <td><%= text.description %></td>
-        <td><%= link_to 'Show', text %></td>
-        <td><%= link_to 'Edit', edit_text_path(text) %></td>
-        <td><%= link_to 'Destroy', text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t("app.show"), text, class: "btn btn-primary" %></td>
+        <td><%= link_to t("app.edit"), edit_text_path(text), class: "btn btn-warning" %></td>
+        <td><%= link_to t("app.destroy"), text, method: :delete, data: { confirm: t("app.messages.are_you_sure") }, class: "btn btn-danger" %></td>
+        <td><%= link_to t("app.new1"), new_agreement_path, class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Text', new_text_path %>
+<div class="col-md-12">
+<%= link_to t("activerecord.attributes.agreement.new_text"), new_text_path, class: "btn btn-success" %>
+</div>

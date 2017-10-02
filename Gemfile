@@ -17,7 +17,13 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+gem 'devise'
+gem 'devise-i18n'
+
+gem 'enum_help'
+#Autorizações e Autenticações
+gem 'pundit'
 # Gem para gerar os pdfs
 gem 'prawn-rails'
 # Gem para gerar os gráficos
@@ -25,9 +31,10 @@ gem 'gruff'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem "bower-rails"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -35,7 +42,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem "gemtherubyracer"
+gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
@@ -45,6 +52,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', :require => false
+  gem 'factory_girl_rails'
 end
 
 group :development do

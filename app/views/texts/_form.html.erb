@@ -15,18 +15,18 @@
 
 
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :shortdescription %>
-    <%= form.text_field :shortdescription, id: :text_shortdescription %>
+    <%= form.text_field :shortdescription, id: :text_shortdescription, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :text_description, cols:80, rows: 10 %>
+    <%= form.text_area :description, id: :text_description, cols:80, rows: 5, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn-success" %>
   </div>
 
 
