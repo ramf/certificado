@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:edit, :update, :destroy]
+before_action :current_user, only: [:edit, :update, :destroy]
 
-  def index
-    @users = User.all
-    
+
+def index
+    #@users = User.with_restricted_access
+    @users = policy_scope(User)
   end
 
   def show
