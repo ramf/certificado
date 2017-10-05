@@ -1,5 +1,10 @@
 class UserPolicy < ApplicationPolicy
 
+
+  def index?
+    user.full_access?
+  end
+
   def new?
     user.full_access?
   end

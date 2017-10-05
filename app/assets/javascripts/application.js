@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require rails-ujs
-
+//= require twitter/bootstrap
 //= require jquery-maskedinput/src/jquery.maskedinput.js
 //= require_tree .

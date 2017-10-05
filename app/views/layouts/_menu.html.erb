@@ -19,6 +19,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to t("app.logout"), destroy_user_session_path, method: :delete %></li>
+              <li><a href=""><%= current_user.email %></a></li>
             </ul>
           </li>
         </ul>

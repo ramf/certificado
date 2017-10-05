@@ -4,8 +4,8 @@ pt-BR:
       role:
         admin: "Administrador"
         user: "Usuário"
-        full_access: Acesso Completo
-        restricted_access:  Acesso Restrito
+        full_access: "Administrador"
+        restricted_access: "Usuário"
   activerecord:
     models:
       agreement: "Certificado"
@@ -25,4 +25,7 @@ pt-BR:
         shortdescription: "Título do Texto:"
         description: "Informe o Texto:"
       user:
-        email: "e-mail"
+        id: "ID"
+        name: "Nome"
+        email: "E-mail"
+        funcao: "Acesso"
