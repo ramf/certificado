@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>CERTIFICADOS</h1>
-
-<div class="col-md-12">
-  <%= link_to t("app.new"), new_agreement_path, class: "btn btn-success" %>
-</div>
+<div class="panel panel-default">
+        <div class="panel-heading">
 
 <br>
 <table class="table table-striped">
@@ -24,7 +22,7 @@
         <td><%= agreement.description %></td>
         <td><%= link_to t("app.show"), agreement, class: "btn btn-primary" %></td>
         <td><%= link_to t("app.edit"), edit_agreement_path(agreement), class: "btn btn-info" %></td>
-        <td><%= link_to t("app.destroy"), agreement, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to t("app.destroy"), agreement, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
         <td><%= link_to t("app.export"), export_agreement_path(agreement), target: "_blank", class: "btn btn-success" %></td>
       </tr>
     <% end %>
@@ -32,5 +30,8 @@
 </table>
 <br>
 <div class="col-md-12">
-  <%= link_to t("app.new"), new_agreement_path, class: "btn btn-success" %>
+
+    </div>
+  </div>
 </div>
+<%= link_to t("app.new"), new_agreement_path, class: "btn btn-success" %>

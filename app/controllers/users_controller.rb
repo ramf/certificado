@@ -22,7 +22,7 @@ before_action :current_user, only: [:edit, :update, :destroy]
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to text_path, notice: ("Você não tem perimissão necessária")
+      redirect_to text_path, notice: ("Você não tem permissão necessária")
     else
       render :new
   end

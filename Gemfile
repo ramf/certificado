@@ -56,6 +56,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', :require => false
   gem 'factory_girl_rails'
+  #Better error page for Rack apps
+  gem 'better_errors'
 end
 
 group :development do

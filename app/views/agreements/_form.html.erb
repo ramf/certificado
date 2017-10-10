@@ -24,17 +24,15 @@
 
 <div class="dropup">
   <%= form.label :text %>
-
-
+  
   <select name="agreement[text_id]" id="agreement_text_id">
      <option value="">Selecione ... </option>
-
-
      <% for t in @texts %>
          <option value="<%=t.id%>" <%=@agreement.text_id == t.id ? "selected" : "" %>><%=t.shortdescription%></option>
      <% end %>
    </select>
-   
+
+
 </div>
 
   <div class="actions">

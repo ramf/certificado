@@ -33,7 +33,7 @@ class TextsController < ApplicationController
 
     respond_to do |format|
       if @text.save
-        format.html { redirect_to @text, notice: 'Text was successfully created.' }
+        format.html { redirect_to @text, notice: 'Criado com sucesso.' }
         format.json { render :show, status: :created, location: @text }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class TextsController < ApplicationController
   def update
     respond_to do |format|
       if @text.update(text_params)
-        format.html { redirect_to @text, notice: 'Text was successfully updated.' }
+        format.html { redirect_to @text, notice: 'Atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @text }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class TextsController < ApplicationController
     authorize @user
     @text.destroy
     respond_to do |format|
-      format.html { redirect_to texts_url, notice: 'Text was successfully destroyed.' }
+      format.html { redirect_to texts_url, notice: 'Apagado com sucesso.' }
       format.json { head :no_content }
     end
   end
