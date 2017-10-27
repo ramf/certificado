@@ -13,6 +13,7 @@ pt-BR:
       text: "Texto"
       text1: "Texto:"
       user: "Usuário"
+      user1: "Usuários"
     attributes:
       agreement:
         client_name: "Nome do Certificado:"
@@ -21,6 +22,7 @@ pt-BR:
         text: "Selecione o Texto:"
         shortdescription: "Nome do Texto"
         new_text: "Novo Texto"
+        nome_certificado: "Nome"
       text:
         shortdescription: "Título do Texto:"
         description: "Informe o Texto:"

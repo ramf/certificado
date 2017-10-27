@@ -44,7 +44,7 @@ end
 
     respond_to do |format|
       if @agreement.save
-        format.html { redirect_to @agreement, notice: 'Agreement was successfully created.' }
+        format.html { redirect_to @agreement, notice: 'Certificado criado com sucesso.' }
         format.json { render :show, status: :created, location: @agreement }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ end
     respond_to do |format|
 
       if @agreement.update(agreement_params)
-        format.html { redirect_to @agreement, notice: 'Agreement was successfully updated.' }
+        format.html { redirect_to @agreement, notice: 'Certificado atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @agreement }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ end
 
     @agreement.destroy
     respond_to do |format|
-      format.html { redirect_to agreements_url, notice: 'Agreement was successfully destroyed.' }
+      format.html { redirect_to agreements_url, notice: 'Certificado excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

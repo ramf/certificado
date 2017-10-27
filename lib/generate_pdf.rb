@@ -10,6 +10,7 @@ module GeneratePdf
     # Define a margem do documento
     :margin      => [40, 75],
     :background  => "lib/imagens/fundon.jpg"
+    #:image => "lib/imagens/fundon.jpg"
   }
 
   def self.agreement name, details, description
@@ -35,6 +36,10 @@ module GeneratePdf
       #pdf.text "O Tribunal de Justiça do Estado do Ceará, CERTIFICA a <b>#{name}</b>, pelo cumprimento da Meta 2 de 2016, estabelecida pelo Conselho Nacional de Justiça."" \"Identificar e julgar, até 31/12/2016, pelo menos 80% dos processos distribuídos até 31/12/2012, no 1º grau, e até 31/12/2013, no 2º grau, e 100% dos processos distribuídos até 31/12/2013, nos Juizados Especiais e Turmas Recursais.\"", :size => 20, :align => :justify, :inline_format => true
       pdf.text description, :size => 20, :align => :justify, :inline_format => true
       # Muda de font para Helvetica
+      #pdf.image "lib/imagens/fundon.jpg", :scale => 0.9, :align => :justify, :inline_format => true
+
+      #bg_image = 'lib/imagens/fundon.jpg'
+      #pdf.image bg_image, :scale => -0.6, :align => :center
 
       pdf.font "Helvetica"
       # Inclui um texto com um link clicável (usando a tag link) no bottom da folha do lado esquerdo e coloca uma cor especifica nessa parte (usando a tag color)

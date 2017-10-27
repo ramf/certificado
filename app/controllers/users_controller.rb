@@ -50,6 +50,6 @@ end
       params[:user].except!(:password)
     end
 
-     params.require(:user).permit(:name, :email, :password, :role)
+     params.require(:user).permit(policy(@user).permitted_attributes)
    end
 end

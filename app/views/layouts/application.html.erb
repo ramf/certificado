@@ -11,18 +11,9 @@
   <body>
     <%= render partial: "layouts/menu"%>
     <div class="container">
+    <%= render 'layouts/messages' %>
     <%= yield %>
+    
     </div>
-    <% if notice %>
-      <script>
-            $.notify("<%= notice %>", "success")
-      </script>
-      <% end %>
-
-      <% if alert %>
-        <script>
-              $.notify("<%= alert %>", "error")
-        </script>
-        <% end %>
   </body>
 </html>

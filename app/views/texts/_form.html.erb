@@ -1,7 +1,5 @@
 <%= form_with(model: text, local: true) do |form| %>
   <% if text.errors.any? %>
-
-
     <div id="error_explanation">
       <h2><%= pluralize(text.errors.count, "error") %> prohibited this text from being saved:</h2>
 
@@ -28,7 +26,4 @@
   <div class="actions">
     <%= form.submit class: "btn-success" %>
   </div>
-
-
-
 <% end %>

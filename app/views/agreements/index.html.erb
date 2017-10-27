@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>CERTIFICADOS</h1>
+<h1><%= t("app.certificado")%></h1>
 <div class="panel panel-default">
         <div class="panel-heading">
 
@@ -9,12 +7,11 @@
   <thead>
     <tr>
 
-      <th>Nome</th>
+      <th><%= t("activerecord.attributes.agreement.nome_certificado")%></th>
       <th>Metas</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @agreements.each do |agreement| %>
       <tr>
@@ -28,6 +25,7 @@
     <% end %>
   </tbody>
 </table>
+
 <br>
 <div class="col-md-12">
 

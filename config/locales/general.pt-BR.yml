@@ -10,6 +10,7 @@ pt-BR:
     export: "Exportar PDF"
     menu: "Menu"
     logout: "Sair"
+    certificado: "CERTIFICADOS"
     messages:
       are_you_sure: "Você tem certeza?"
       edit: "Editar"
