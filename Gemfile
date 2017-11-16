@@ -23,7 +23,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'sprockets', '~> 3.6.3'
 gem 'delayed_job_active_record'
-
+gem "letter_opener", :group => :development
 gem 'enum_help'
 #Autorizações e Autenticações
 gem 'pundit'

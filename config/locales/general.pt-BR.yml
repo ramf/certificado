@@ -8,6 +8,7 @@ pt-BR:
     edit: "Editar"
     destroy: "Apagar"
     export: "Exportar PDF"
+    send: 'Enviar por email'
     menu: "Menu"
     logout: "Sair"
     certificado: "CERTIFICADOS"

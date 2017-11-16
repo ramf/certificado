@@ -8,9 +8,6 @@ class AgreementsController < ApplicationController
   # GET /agreements.json
   def index
     @agreements = Agreement.all
-
-
-
   end
 
   # GET /agreements/1
@@ -98,12 +95,24 @@ end
     end
   end
 
+  def send_email
+    if @agreement.email != nil
+      mail(to: @agreement.email) do |format|
+  format.text
+  format.html { render "send_certificate" }
+end
+      respond_to do |format|
+        format.html { redirect_to agreements_url, notice: 'Teste' }
+      end
+  end
+end
+
   private
     def set_agreement
       @agreement = Agreement.find(params['id'])
     end
 
     def agreement_params
-      params.require(:agreement).permit(:client_name, :description, :price, :text_id)
+      params.require(:agreement).permit(:client_name, :description, :price, :text_id, :email)
     end
 end

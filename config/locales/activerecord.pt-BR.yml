@@ -16,6 +16,7 @@ pt-BR:
       user1: "Usuários"
     attributes:
       agreement:
+        email: 'email'
         client_name: "Nome do Certificado:"
         description: "Descrição"
         description2: "Descrição:"

@@ -21,10 +21,12 @@ resources :spendings
 # /spendings_export
 root "agreements#index"
 get '/spending_export' => 'spendings#export'
+
 resources :agreements do
   member do
     # /agreements/:id/export
     get 'export'
+    get 'send_email'
   end
 end
 end
