@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108173624) do
+ActiveRecord::Schema.define(version: 20171122140657) do
 
   create_table "agreements", force: :cascade do |t|
     t.string "client_name"
@@ -66,8 +66,10 @@ ActiveRecord::Schema.define(version: 20171108173624) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "role", default: 1
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username"
   end
 
 end

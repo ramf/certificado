@@ -11,8 +11,11 @@
       <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
     <fieldset>
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, class: "form-control",placeholder: "e-mail", type: "email", autofocus: "autofocus" %>
+
+      <div class="field">
+        <%= f.label :matricula %><br/>
+        <%= f.text_field :username, autofocus: true, class: "form-control", placeholder:
+        "Matrícula" %>
       </div>
 
       <div class="form-group">

@@ -1,12 +1,23 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  # ==> LDAP Configuration
+  config.ldap_logger = true
+  config.ldap_create_user = true
+  # config.ldap_update_password = true
+  config.ldap_config = "#{Rails.root}/config/ldap.yml"
+  # config.ldap_check_group_membership = false
+  # config.ldap_check_group_membership_without_admin = false
+  # config.ldap_check_attributes = false
+  config.ldap_use_admin_to_bind = true
+  # config.ldap_ad_group_check = false
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '51a81b7a10138ecc53e39d58323446f03cf7fe090ef876966197db2a3063b07008eee341c32387541f39557f2de7562047c5ac95e48ab9183a9c21b913417c0d'
+  # config.secret_key = 'a214c378273567ac93eff61995dd77249963ad15584ae03eeed21f0dea8d207a76b474637f97686fe611ff099e75ea7dc1c2d4a52d4478f919fc49691f90086d'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -34,7 +45,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:username]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -108,7 +119,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '27c795b767bcde3dc68cb3ec562bae4e91d90a1db3584b647aa58d2aa593db7fa6bcab8f23c48da35006358108aef943f19581fa89121234f22c6b122721e60d'
+  # config.pepper = '97fd6a2dce88621f4a5385f7ea4f9227941e0acd7857b7bf5fa713b481994c577d758da87dcd7684edf10287a8fb93f1e6f70eb88a0b789f75e14b70a99a38cd'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -245,6 +256,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
+  #config.sign_out_via = :delete
   config.sign_out_via = :delete
 
   # ==> OmniAuth
