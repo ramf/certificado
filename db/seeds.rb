@@ -20,4 +20,4 @@
 #             password: '123456',
 #             role: 1
 #             )
-User.create(email: '900828@tjce.jus.br', password: '123456', username: '900828')
+User.create(email: '900828@tjce.jus.br', password: '123456', username: '900828', role: 0)

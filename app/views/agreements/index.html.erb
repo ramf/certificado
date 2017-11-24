@@ -23,7 +23,7 @@
         <td><%= link_to t("app.edit"), edit_agreement_path(agreement), class: "btn btn-info" %></td>
         <td><%= link_to t("app.destroy"), agreement, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
         <td><%= link_to t("app.export"), export_agreement_path(agreement), target: "_blank", class: "btn btn-success" %></td>
-        <td><%= link_to t("app.send"), send_email_agreement_path(agreement), target: "_blank", class: "btn btn-success" %></td>
+        <td><%= link_to t("app.send"), send_email_agreement_path(agreement), class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>

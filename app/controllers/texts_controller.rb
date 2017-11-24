@@ -17,7 +17,7 @@ class TextsController < ApplicationController
   def new
     @text = Text.new
     @user = User.new
-    authorize @user
+    #authorize @user
   end
 
   # GET /texts/1/edit

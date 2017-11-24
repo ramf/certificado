@@ -3,6 +3,6 @@ class CertificateMailer < ApplicationMailer
 
   def send_certificate(user_id)
     @agreement = Agreement.find(user_id)
-    mail(:to => "ramf08@gmail.com", :subject => "teste")
+    mail(:to => "romulo.fortaleza@tjce.jus.br", :subject => "teste")
   end
 end

@@ -19,7 +19,7 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @user = User.new
-    authorize @user
+    #authorize @user
     @agreement = Agreement.new
     @texts = Text.all
   end
@@ -96,17 +96,14 @@ end
   end
 
   def send_email
-    if @agreement.email != nil
-      mail(to: @agreement.email) do |format|
-  format.text
-  format.html { render "send_certificate" }
-end
+    if @agreement != nil
+    EmailService.send_email("", "", "")
+    else
       respond_to do |format|
-        format.html { redirect_to agreements_url, notice: 'Teste' }
+        format.html { redirect_to agreements_url, notice: 'Sem email associado' }
       end
-  end
 end
-
+end
   private
     def set_agreement
       @agreement = Agreement.find(params['id'])

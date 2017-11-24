@@ -1,9 +1,7 @@
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            => "jaopinto92",
-  :password             => "broncos2016",
-  :authentication       => "plain",
+  :address              => "webmail.tj.ce.gov.br",
+  :port                 => 25,
+  :openssl_verify_mode  => "none",
   :enable_starttls_auto => true
 }
 
