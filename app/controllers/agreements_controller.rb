@@ -1,6 +1,8 @@
+require 'email_service.rb'
+
 class AgreementsController < ApplicationController
   # No Before Action nós adicionamos também o export para que ele consiga pegar o agreement correto
-  before_action :set_agreement, only: [:show, :edit, :update, :destroy, :export]
+  before_action :set_agreement, only: [:show, :edit, :update, :destroy, :export, :send_email]
   # Nós incluimos aqui a lib que vamos criar chamada generate_pdf.rb
   require './lib/generate_pdf'
 
@@ -31,8 +33,7 @@ class AgreementsController < ApplicationController
     authorize @user
     @agreement = Agreement.new
     @texts = Text.all
-
-end
+  end
 
   # POST /agreements
   # POST /agreements.json
@@ -96,20 +97,23 @@ end
   end
 
   def send_email
+    puts @agreement.inspect
     if @agreement != nil
-    EmailService.send_email("", "", "")
+      EmailService.send_email("", "", "", "")
     else
       respond_to do |format|
         format.html { redirect_to agreements_url, notice: 'Sem email associado' }
       end
-end
-end
+    end
+  end
+
   private
     def set_agreement
       @agreement = Agreement.find(params['id'])
     end
 
     def agreement_params
+      puts params.inspect
       params.require(:agreement).permit(:client_name, :description, :price, :text_id, :email)
     end
 end
