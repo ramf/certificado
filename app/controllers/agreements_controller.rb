@@ -24,6 +24,7 @@ class AgreementsController < ApplicationController
     #authorize @user
     @agreement = Agreement.new
     @texts = Text.all
+
   end
 
   # GET /agreements/1/edit
@@ -99,7 +100,8 @@ class AgreementsController < ApplicationController
   def send_email
     puts @agreement.inspect
     if @agreement != nil
-      EmailService.send_email("", "", "", "")
+      EmailService.send_email(@agreement)
+      redirect_to '/agreements', notice: 'Certificado enviado com sucesso'
     else
       respond_to do |format|
         format.html { redirect_to agreements_url, notice: 'Sem email associado' }

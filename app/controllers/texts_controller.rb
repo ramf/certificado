@@ -32,6 +32,7 @@ class TextsController < ApplicationController
     @text = Text.new(text_params)
 
     respond_to do |format|
+
       if @text.save
         format.html { redirect_to @text, notice: 'Criado com sucesso.' }
         format.json { render :show, status: :created, location: @text }

@@ -10,7 +10,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   #include Pundit
 
 #Gerencia erros do Pundit
-#rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
     def configure_permitted_parameters
       # devise 4.3 .for method replaced by .permit
@@ -18,10 +18,16 @@ before_action :configure_permitted_parameters, if: :devise_controller?
       #devise_parameter_sanitizer.for(:sign_in) << :username
     end
 
-  # private
-  #
-  #   def user_not_authorized
-  #     flash[:notice] = "Você não está autorizado a executar essa ação."
-  #     redirect_to(request.referrer || root_path)
-  #     end
-    end
+    private
+      def set_active_controller_action
+        if params[:controller] && params[:action] && current_user
+          current_user.active_controller_action = params[:controller] + "/" + params[:action]
+        end
+      end
+
+      def user_not_authorized
+        flash[:error] = "Ação não autorizada"
+        redirect_to(request.referrer || root_path)
+      end
+
+  end

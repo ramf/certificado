@@ -12,6 +12,7 @@
 /db/*.sqlite3-journal
 
 config/ldap.yml
+app/services/email_service.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*
