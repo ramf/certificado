@@ -6,24 +6,14 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><%= link_to t("activerecord.models.agreement"), agreements_path %></li>
-          <li><%= link_to t("activerecord.models.texts"), texts_path %></li>
+          <li><%= link_to fa_icon("certificate", text: "Certificados"), agreements_path %></li>
+          <li><%= link_to fa_icon("file-text-o", text: "Textos"), texts_path %></li>
 
           </ul>
         <ul class="nav navbar-nav navbar-right">
-             <li><a href=""><%= current_user.email %></a></li>
-             <li><%= link_to t("app.logout"), destroy_user_session_path, method: :delete %></li>
-          <li class="dropdown">
-
-            <ul class="dropdown-menu">
-              <% if user_signed_in? %>
-						<%= link_to('Sair', destroy_user_session_path, :class => "fa fa-sign-out",
-               :style => "color: #257752" )%>
-						<% end %>
-              <li><a href=""><%= current_user.email %></a></li>
+             <li><a href="">Olá, <%= @nome_completo %></a></li>
+             <li><%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
             </ul>
-          </li>
-        </ul>
       </div>
     </div>
   </nav>

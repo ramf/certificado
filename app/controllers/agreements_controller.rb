@@ -10,6 +10,7 @@ class AgreementsController < ApplicationController
   # GET /agreements.json
   def index
     @agreements = Agreement.all
+    @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
   end
 
   # GET /agreements/1

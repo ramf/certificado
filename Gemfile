@@ -28,6 +28,7 @@ gem 'delayed_job_active_record'
 gem "letter_opener", :group => :development
 gem 'enum_help'
 gem "devise_ldap_authenticatable"
+gem 'ransack'
 #Autorizações e Autenticações
 gem 'pundit'
 # Gem para gerar os pdfs
