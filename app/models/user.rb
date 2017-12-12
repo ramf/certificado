@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+
+  has_many :user_agreements
+  has_many :agreements, through: :user_agreements
+
   #Constants
   ROLES = {:full_access => 0, :restricted_access => 1}
 

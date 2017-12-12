@@ -4,7 +4,7 @@ before_action :current_user, only: [:edit, :update, :destroy]
 
   def index
     #@users = User.with_restricted_access
-    @users = policy_scope(User)
+    #@users = policy_scope(User)
     authorize @users
   end
 
@@ -26,6 +26,7 @@ before_action :current_user, only: [:edit, :update, :destroy]
     else
       render :new
   end
+
 end
 
   def edit

@@ -16,17 +16,19 @@ pt-BR:
       user1: "Usuários"
     attributes:
       agreement:
-        email: 'email'
-        client_name: "Nome do Certificado:"
-        description: "Descrição"
+        email: 'E-mail do usuário:'
+        email1: 'E-mail do usuário'
+        client_name: "Nome do usuário:"
+        description: "Descrição do certificado:"
         description2: "Descrição:"
+        description3: "Descrição do certificado"
         text: "Selecione o Texto:"
-        shortdescription: "Nome do Texto"
+        shortdescription: "Nome do texto"
         new_text: "Novo Texto"
         nome_certificado: "Nome"
       text:
-        shortdescription: "Título do Texto:"
-        description: "Informe o Texto:"
+        shortdescription: "Título do texto:"
+        description: "Informe o texto:"
       user:
         id: "ID"
         name: "Nome"

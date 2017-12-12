@@ -8,10 +8,12 @@
         <ul class="nav navbar-nav">
           <li><%= link_to fa_icon("certificate", text: "Certificados"), agreements_path %></li>
           <li><%= link_to fa_icon("file-text-o", text: "Textos"), texts_path %></li>
+          <li><%= link_to fa_icon("check", text: "Certificados por usuário"), associate_index_path %></li>
 
           </ul>
         <ul class="nav navbar-nav navbar-right">
-             <li><a href="">Olá, <%= @nome_completo %></a></li>
+             <li><a href="#">Olá, <%= @nome_completo %></a></li>
+
              <li><%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
             </ul>
       </div>

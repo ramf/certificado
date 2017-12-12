@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get 'users/destroy'
 
+  get 'associate/index'
+  post 'associate/associate'  
+
   devise_for :users
   resources :users
   resources :texts

@@ -76,7 +76,7 @@ class AgreementsController < ApplicationController
   # DELETE /agreements/1.json
   def destroy
     @user = User.new
-    authorize @user
+    #authorize @user
 
     @agreement.destroy
     respond_to do |format|

@@ -29,6 +29,8 @@ gem "letter_opener", :group => :development
 gem 'enum_help'
 gem "devise_ldap_authenticatable"
 gem 'ransack'
+# Use SCSS for stylesheets
+
 #Autorizações e Autenticações
 gem 'pundit'
 # Gem para gerar os pdfs

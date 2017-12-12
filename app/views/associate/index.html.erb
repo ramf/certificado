@@ -1,0 +1,42 @@
+<%= form_tag("/associate/associate", method: 'post') do %>
+  <div class="row">
+    <div class="col">
+      <label for="user">Usuário:</label>
+      <%= select_tag 'user', options_from_collection_for_select(@people, "id", "username", @user.id),
+       class: "form-control"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="agreement">Certificado:</label>
+      <%= select_tag 'agreement', options_from_collection_for_select(@agreements, "id", "client_name"), class: "form-control"%>
+    </div>
+  </div>
+  <div class="form-group row mt-2">
+    <div class="col">
+      <%= button_tag 'Associar' , class: 'btn btn-success'%>
+    </div>
+  </div>
+<% end %>
+
+<script>
+$('#user').change(function() {
+  console.log("chamou");
+  window.location = "/associate/index?user=" + $('#user').val();
+});
+</script>
+
+<% if @userAgreements.length > 0 %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <h3>Certificado(s) do usuário</h3>
+    </tr>
+  </thead>
+  <tbody>
+    <% @userAgreements.each do |agreement| %>
+      <tr><td><%= agreement.description %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
