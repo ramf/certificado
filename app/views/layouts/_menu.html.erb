@@ -1,22 +1,20 @@
 <% if user_signed_in? %>
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#"><%= t("app.appname") %></a>
+      <div class="navbar-header">        
+        <ul><img alt="image" id="logo-header" src="<%= image_url 'logo.png' %>"/></ul>
       </div>
+
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="#"><%= t("app.appname") %></a>
         <ul class="nav navbar-nav">
           <li><%= link_to fa_icon("certificate", text: "Certificados"), agreements_path %></li>
           <li><%= link_to fa_icon("file-text-o", text: "Textos"), texts_path %></li>
-          <li><%= link_to fa_icon("check", text: "Certificados por usuário"), associate_index_path %></li>
-
+          <li><%= link_to fa_icon("check", text: "Certificados por Usuário"), associate_index_path %></li>
           </ul>
         <ul class="nav navbar-nav navbar-right">
-             <li><a href="#">Olá, <%= @nome_completo %></a></li>
-
-             <li><%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
-            </ul>
+          <li><a href="#">Olá, <%= @nome_completo %></a></li>
+          <li><%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
+        </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
 <% end %>

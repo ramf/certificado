@@ -105,7 +105,7 @@ class AgreementsController < ApplicationController
       redirect_to '/agreements', notice: 'Certificado enviado com sucesso'
     else
       respond_to do |format|
-        format.html { redirect_to agreements_url, notice: 'Sem email associado' }
+        format.html { redirect_to agreements_url, notice: 'Sem e-mail associado' }
       end
     end
   end

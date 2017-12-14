@@ -1,48 +1,31 @@
+    <h2 class="system-title" style="color: #366c59;font-family: arial, Helvetica, sans-serif;">SiN - CERTIFIQUE-SE</h2>
+      <div class="gove-names">
+        <img alt="image" id="logo" src="<%= image_url 'logo_tj.png' %>" width="100px"/>
+        <p style="font-size: 12px">Tribunal de Justiça do Estado do Ceará<br/>
+                        Poder Judiciário<br/>
+                        Comarca de Fortaleza<br/>
+                        Diretoria do Fórum Clóvis Beviláqua<br/>
+                        Gerência de Informática<br/>
+                    </p>
+</div>
 
-<div class="row justify-content-center align-items-center h-100">
-  <div class="col-4 col-center">
-    <h2 class="system-title">SiN-Certifique-se</h2>
-    <div class="row justify-content-center">
-      <img alt="image" id="logo" src="<%= image_url 'logo-tj.png' %>"/>
-      </div>
-      <div class="row justify-content-center gov-names">
-      <p>
-          Tribunal de Justiça do Estado do Ceará<br>
-          Estado do Ceará<br>
-          Poder Judiciário<br>
-          Comarca de Fortaleza<br>
-          Diretoria do Fórum Clóvis Beviláqua<br>
-          Gerencia de Informática
-      </p>
-
-
-  <div class="row">
-    <br/>
-    <br/>
     <div class="col-md-4 col-md-offset-4">
       <div class="login-panel panel panel-default">
 
       <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal") do |f| %>
-    
+
 
       <div class="field">
-        <%= f.label :matricula %><br/>
+        <%= f.label :matricula %>
         <%= f.text_field :username, autofocus: true, class: "form-control", placeholder:
         "Matrícula" %>
       </div>
 
       <div class="field">
-        <%= f.label :senha %><br />
+        <%= f.label :senha %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder:"senha", type:"password" %>
       </div>
-
-      <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :Lembrar %>
-        </div>
-      <% end -%>
 
       <div class="form-group">
       <%= f.submit ("Entrar"), class: "btn btn-lg btn-success btn-block" %>
@@ -52,7 +35,3 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
