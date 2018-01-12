@@ -22,12 +22,13 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   before_validation :get_ldap_email
   def get_ldap_email
-	     self.email = Devise::LDAP::Adapter.get_ldap_param(self.username,"mail").first
+	     self.email = Devise::LDAP::Adapter.get_ldap_param(self.username,"mail")
     if Devise::LDAP::Adapter.get_ldap_param(username, 'mail')
   	   self.email = Devise::LDAP::Adapter.get_ldap_param(self.username,"mail").first
     else
       self.email = "#{username}@tjce.jus.br"
     end
+    self.role = 1
   end
   # hack for remember_token
   def authenticatable_token

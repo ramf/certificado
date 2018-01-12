@@ -22,7 +22,7 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @user = User.new
-    #authorize @user
+    authorize @user
     @agreement = Agreement.new
     @texts = Text.all
 
@@ -76,7 +76,7 @@ class AgreementsController < ApplicationController
   # DELETE /agreements/1.json
   def destroy
     @user = User.new
-    #authorize @user
+    authorize @user
 
     @agreement.destroy
     respond_to do |format|
@@ -87,6 +87,9 @@ class AgreementsController < ApplicationController
 
   # Criamos este método que vai chamar nossa lib para gerar o PDF e depois redirecionar o user para o arquivo PDF
   def export
+    @user = User.new
+    authorize @user
+
     if @agreement.text != nil
        GeneratePdf::agreement(@agreement.client_name, @agreement.description,
        @agreement.text.description.gsub("{nome}","<b>"+@agreement.client_name+"</b>"))
@@ -99,6 +102,11 @@ class AgreementsController < ApplicationController
   end
 
   def send_email
+    @user = User.new
+    authorize @user
+    @agreement = Agreement.new
+    @texts = Text.all
+
     puts @agreement.inspect
     if @agreement != nil
       EmailService.send_email(@agreement)

@@ -12,6 +12,7 @@ class AssociateController < ApplicationController
   end
 
   def associate
+    authorize @user
     @user.agreements << @agreement
     redirect_to action: 'index', user: @user.id
   end

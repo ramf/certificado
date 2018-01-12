@@ -6,12 +6,15 @@
        class: "form-control"%>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
       <label for="agreement">Certificado:</label>
-      <%= select_tag 'agreement', options_from_collection_for_select(@agreements, "id", "client_name"), class: "form-control"%>
+
+        <%= select_tag 'agreement', options_from_collection_for_select(@agreements, "id", "client_name"), class: "form-control"%>
     </div>
   </div>
+
   <div class="form-group row mt-2">
     <div class="col">
       <%= button_tag 'Associar' , class: 'btn btn-success'%>
@@ -30,7 +33,7 @@ $('#user').change(function() {
 <table class="table table-hover">
   <thead>
     <tr>
-      <h3>Certificado(s) do usuário</h3>
+      <h3>Certificado(s) do(a) usuário(a)</h3>
     </tr>
   </thead>
   <tbody>
