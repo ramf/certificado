@@ -18,14 +18,14 @@ pt-BR:
       agreement:
         email: 'E-mail do usuário:'
         email1: 'E-mail do usuário'
-        client_name: "Nome do usuário:"
+        client_name: "Matrícula:"
         description: "Descrição do certificado:"
         description2: "Descrição:"
         description3: "Descrição do certificado"
         text: "Selecione o Texto:"
         shortdescription: "Nome do texto"
         new_text: "Novo Texto"
-        nome_certificado: "Nome"
+        nome_certificado: "Matrícula"
       text:
         shortdescription: "Título do texto:"
         description: "Informe o texto:"
