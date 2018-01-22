@@ -14,12 +14,16 @@ class EmailService
     content_type 'text/html; charset=UTF-8'
     url = "http://localhost:3000/agreements/#{agreement.id}/export"
     body "<p> Olá #{agreement.client_name}, seu certificado está pronto, <a href='#{url}'>acesse aqui</a> para baixar ou imprimir.</p>"  end
-end
+  end
     puts mail.to_s
-    mail.delivery_method :smtp, { address: "webmail.tjce.jus.br", port: 25, openssl_verify_mode: "none",
-      user_name: '900828', password: 'ramf1', authentication: 'login',
+    mail.delivery_method :smtp, { address: "webmail.tjce.jus.br",
+      port: 25,
+      openssl_verify_mode: "none",
+      user_name: '900828',
+      password: 'ramf2',
+      authentication: 'login',
       enable_starttls_auto: true
-    }
+}
     mail.deliver
   end
 end

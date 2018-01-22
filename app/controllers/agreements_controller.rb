@@ -11,6 +11,8 @@ class AgreementsController < ApplicationController
   def index
     @agreements = Agreement.all
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
+    @q = Agreement.ransack(params[:q])
+    @agreements = @q.result.order(:client_name, :description).page(params[:page]).per(15)
   end
 
   # GET /agreements/1
@@ -21,6 +23,7 @@ class AgreementsController < ApplicationController
 
   # GET /agreements/new
   def new
+    @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
     @user = User.new
     authorize @user
     @agreement = Agreement.new
@@ -91,8 +94,9 @@ class AgreementsController < ApplicationController
     authorize @user
 
     if @agreement.text != nil
+       @nome = Devise::LDAP::Adapter.get_ldap_param(@agreement.client_name,"cn").first.force_encoding("utf-8")
        GeneratePdf::agreement(@agreement.client_name, @agreement.description,
-       @agreement.text.description.gsub("{nome}","<b>"+@agreement.client_name+"</b>"))
+       @agreement.text.description.gsub("{nome}","<b>"+@nome+"</b>"))
        redirect_to '/agreement.pdf'
     else
       respond_to do |format|
@@ -104,7 +108,6 @@ class AgreementsController < ApplicationController
   def send_email
     @user = User.new
     authorize @user
-    @agreement = Agreement.new
     @texts = Text.all
 
     puts @agreement.inspect

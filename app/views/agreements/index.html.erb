@@ -1,8 +1,23 @@
+<div class="search">
+<%= search_form_for @q do |f| %>
+    <%= f.search_field :client_name_cont, class: "form-control", placeholder: 'Pesquisar por nome ou matrícula' %>
+  </div>
+  <div class="buttons">
+    <%= button_tag type: "submit", title: "Pesquisar", class: "btn btn-success " do %>
+      <%= fa_icon("search") %>
+    <% end %>
+    <%= link_to agreements_path, title: "Limpar pesquisa", class: "btn btn-danger" do %>
+      <%= fa_icon("close") %>
+    <% end %>
+    </div>
+<br>
+
 <h1>Todos os certificados criados</h1>
 <div class="panel panel-default">
         <div class="panel-heading">
 
 <br>
+<br/>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -35,6 +50,8 @@
     <%= link_to fa_icon("certificate", text: "Novo Certificado"), new_agreement_path, class: "btn btn-success" %>
   </div>
 </div>
+<% end %>
 
-<br>
-<br>
+<div>
+  <%= paginate @agreements %>
+</div>

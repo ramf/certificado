@@ -6,6 +6,8 @@ before_action :current_user, only: [:edit, :update, :destroy]
     #@users = User.with_restricted_access
     #@users = policy_scope(User)
     authorize @users
+
+    #@users = User.order(:client_name).page(params[:page]).per(10)    
   end
 
   def show

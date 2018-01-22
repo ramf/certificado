@@ -29,12 +29,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-  if sAMAccountName=900828
-    [:name, :email, :role, :password, :password_confirmation]
-  else
-    [:name, :email, :password, :password_confirmation]
+    if user.full_access?
+      [:name, :email, :role, :password, :password_confirmation]
+    else
+      [:name, :email, :password, :password_confirmation]
+    end
   end
-end
 
 class Scope < Scope
   def resolve
