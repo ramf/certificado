@@ -29,14 +29,15 @@ class AgreementsController < ApplicationController
     @agreement = Agreement.new
     @texts = Text.all
 
-  end
+    end
+
 
   # GET /agreements/1/edit
   def edit
 
     @user = User.new
     authorize @user
-    @agreement = Agreement.new
+    
     @texts = Text.all
   end
 
@@ -112,6 +113,9 @@ class AgreementsController < ApplicationController
 
     puts @agreement.inspect
     if @agreement != nil
+      @nome = Devise::LDAP::Adapter.get_ldap_param(@agreement.client_name,"cn").first.force_encoding("utf-8")
+      GeneratePdf::agreement(@agreement.client_name, @agreement.description,
+      @agreement.text.description.gsub("{nome}","<b>"+@nome+"</b>"))
       EmailService.send_email(@agreement)
       redirect_to '/agreements', notice: 'Certificado enviado com sucesso'
     else

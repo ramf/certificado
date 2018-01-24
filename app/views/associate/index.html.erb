@@ -11,7 +11,7 @@
     <div class="col">
       <label for="agreement">Certificado:</label>
 
-        <%= select_tag 'agreement', options_from_collection_for_select(@agreements, "id", "client_name"), class: "form-control"%>
+        <%= select_tag 'agreement', options_from_collection_for_select(@agreements, "id", "description"), class: "form-control"%>
     </div>
   </div>
 

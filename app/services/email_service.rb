@@ -6,14 +6,18 @@ class EmailService
       #message_id 'paulo.guilherme@tjce.jus.br'
       to       agreement.email
       subject  "SIN-Certifique-se"
+
+      add_file 'public/agreement.pdf'
       #body File.read('app/views/certificate_mailer/send_certificate.html.erb')
      # if  File.file?(log_path) then
       #  add_file log_path
      #end
      html_part do
-    content_type 'text/html; charset=UTF-8'
-    url = "http://localhost:3000/agreements/#{agreement.id}/export"
-    body "<p> Olá #{agreement.client_name}, seu certificado está pronto, <a href='#{url}'>acesse aqui</a> para baixar ou imprimir.</p>"  end
+      content_type 'text/html; charset=UTF-8'
+      url = "http://localhost:3000/agreements/#{agreement.id}/export"
+      body "<p> Olá #{agreement.client_name}, seu certificado está pronto, <a href='#{url}'>acesse aqui</a>
+       para baixar ou imprimir. Caso seja usuário externo, clique no PDF em anexo para baixar.</p>"
+     end
   end
     puts mail.to_s
     mail.delivery_method :smtp, { address: "webmail.tjce.jus.br",
