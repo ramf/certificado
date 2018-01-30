@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2> <%= @student.name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+      <%= link_to t("app.edit"), edit_student_path(@student), class: "btn btn-danger" %> |
+      <%= link_to 'Voltar', students_path, class: "btn btn-success" %>
+    </div>
+  </div>
+
+<hr>
+<dl class+"dl-horizontal">
+<dt>
+  <strong>Nome:</strong>
+</dt>
+  <dd> <%= @student.name %> </dd>
+</dl>
+
+
+<dl class="dl-horizontal">
+  <dt>
+  <strong>Email:</strong>
+</dt>
+  <dd> <%= @student.email %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt>
+  <strong>Descrição:</strong>
+</dt>
+  <dd> <%= @student.description %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <% if @student.text != nil %>
+  <dt>
+    <strong>Texto:</strong>
+  </dt>
+  <dd> <%= @student.text.description %> </dd>
+</dl>
+</hr>
+<% end %>

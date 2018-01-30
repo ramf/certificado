@@ -1,6 +1,6 @@
 <div class="search">
 <%= search_form_for @q do |f| %>
-    <%= f.search_field :client_name_cont, class: "form-control", placeholder: 'Pesquisar por nome ou matrícula' %>
+    <%= f.search_field :client_name_or_name_cont, class: "form-control", placeholder: 'Pesquisar por nome ou matrícula' %>
   </div>
   <div class="buttons">
     <%= button_tag type: "submit", title: "Pesquisar", class: "btn btn-success " do %>
@@ -30,7 +30,7 @@
   <tbody>
     <% @agreements.each do |agreement| %>
       <tr>
-        <td><%= agreement.client_name %></td>
+        <td><%= agreement.client_name %></td>        
         <td><%= agreement.description %></td>
         <td><%= agreement.email %></td>
         <td><%= link_to fa_icon("eye", title: "Visualizar"), agreement, class: "btn btn-primary" %></td>

@@ -1,0 +1,44 @@
+<%= form_with(model: student, local: true) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :student_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :student_email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :student_description, class: "form-control" %>
+  </div>
+
+  <div class="dropup">
+      <%= form.label :text %>
+      <select name="student[text_id]" id="student_text_id">
+         <option value="">Selecione ... </option>
+         <% if @texts != nil %>
+         <% for t in @texts %>
+             <option value="<%=t.id%>" <%=@student.text_id == t.id ? "selected" : "" %>><%=t.shortdescription%></option>
+             <% end %>
+         <% end %>
+       </select>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

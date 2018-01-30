@@ -18,6 +18,7 @@ pt-BR:
       agreement:
         email: 'E-mail do usuário:'
         email1: 'E-mail do usuário'
+        name: "Nome do aluno (apenas aluno externo):"
         client_name: "Matrícula:"
         description: "Descrição do certificado:"
         description2: "Descrição:"
@@ -26,6 +27,7 @@ pt-BR:
         shortdescription: "Nome do texto"
         new_text: "Novo Texto"
         nome_certificado: "Matrícula"
+        name: "Aluno externo"
       text:
         shortdescription: "Título do texto:"
         description: "Informe o texto:"
