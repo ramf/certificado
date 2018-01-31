@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :students do
+  member do
+    # /agreements/:id/export
+    get 'export'
+    get 'send_student'
+  end
+end
   get 'activities/activities'
 
   get 'users/index'

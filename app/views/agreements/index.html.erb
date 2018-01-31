@@ -1,6 +1,6 @@
 <div class="search">
 <%= search_form_for @q do |f| %>
-    <%= f.search_field :client_name_cont, class: "form-control", placeholder: 'Pesquisar por nome ou matrícula' %>
+    <%= f.search_field :client_name_or_name_cont, class: "form-control", placeholder: 'Pesquisar por nome ou matrícula' %>
   </div>
   <div class="buttons">
     <%= button_tag type: "submit", title: "Pesquisar", class: "btn btn-success " do %>
@@ -38,6 +38,11 @@
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_email_agreement_path(agreement), class: "btn btn-success" %></td>
         <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_agreement_path(agreement), target: "_blank", class: "btn btn-warning" %></td>
         <td><%= link_to fa_icon("trash-o", title: "Excluir"), agreement, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> DeviseLdap
       </tr>
     <% end %>
   </tbody>

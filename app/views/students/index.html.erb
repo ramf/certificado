@@ -36,7 +36,11 @@
         <td><%= link_to fa_icon("eye", title: "Visualizar"), student, class: "btn btn-primary" %></td>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_student_path(student), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_student_student_path(student), class: "btn btn-success" %></td>
+<<<<<<< HEAD
         <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_student_path(student), target: "_blank", class: "btn btn-warning" %></td>
+=======
+        <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_student_path(student), target: "_blank", class: "btn btn-warning" %></td>        
+>>>>>>> DeviseLdap
         <td><%= link_to fa_icon("trash-o", title: "Excluir"), student, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>

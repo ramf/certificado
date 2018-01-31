@@ -37,7 +37,11 @@ class AgreementsController < ApplicationController
 
     @user = User.new
     authorize @user
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> DeviseLdap
     @texts = Text.all
   end
 
@@ -132,6 +136,6 @@ class AgreementsController < ApplicationController
 
     def agreement_params
       puts params.inspect
-      params.require(:agreement).permit(:client_name, :description, :price, :text_id, :email)
+      params.require(:agreement).permit(:client_name, :description, :price, :text_id, :email, :name)
     end
 end
