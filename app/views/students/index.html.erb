@@ -1,0 +1,54 @@
+<div class="search">
+<%= search_form_for @q do |f| %>
+    <%= f.search_field :name_cont, class: "form-control", placeholder: 'Pesquisar por nome' %>
+  </div>
+  <div class="buttons">
+    <%= button_tag type: "submit", title: "Pesquisar", class: "btn btn-success " do %>
+      <%= fa_icon("search") %>
+    <% end %>
+    <%= link_to students_path, title: "Limpar pesquisa", class: "btn btn-danger" do %>
+      <%= fa_icon("close") %>
+    <% end %>
+    </div>
+<br>
+
+<h1>Certificados criados dos alunos externos</h1>
+<div class="panel panel-default">
+        <div class="panel-heading">
+
+<br>
+<br/>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Descrição</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.description %></td>
+        <td><%= link_to fa_icon("eye", title: "Visualizar"), student, class: "btn btn-primary" %></td>
+        <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_student_path(student), class: "btn btn-info" %></td>
+        <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_student_student_path(student), class: "btn btn-success" %></td>
+        <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_student_path(student), target: "_blank", class: "btn btn-warning" %></td>
+        <td><%= link_to fa_icon("trash-o", title: "Excluir"), student, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+    <%= link_to fa_icon("certificate", text: "Novo Certificado"), new_student_path, class: "btn btn-success" %>
+  </div>
+</div>
+<% end %>
+
+<div>
+  <%= paginate @students %>
+</div>
