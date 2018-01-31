@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   member do
     # /agreements/:id/export
     get 'export'
+    get 'send_student'
   end
 end
   get 'activities/activities'
