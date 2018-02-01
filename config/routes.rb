@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :certificates do
+    member do
+      get 'export'
+      get 'send_card'
+    end
+  end
+
   resources :students do
   member do
     # /agreements/:id/export
@@ -6,6 +13,7 @@ Rails.application.routes.draw do
     get 'send_student'
   end
 end
+
   get 'activities/activities'
 
   get 'users/index'

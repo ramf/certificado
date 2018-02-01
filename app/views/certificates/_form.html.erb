@@ -1,0 +1,44 @@
+<%= form_with(model: certificate, local: true) do |form| %>
+  <% if certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+      <% certificate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :certificate_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :certificate_email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :certificate_description, class: "form-control" %>
+  </div>
+
+  <div class="dropup">
+      <%= form.label :text %>
+      <select name="certificate[text_id]" id="certificate_text_id">
+         <option value="">Selecione ... </option>
+         <% if @texts != nil %>
+         <% for t in @texts %>
+             <option value="<%=t.id%>" <%=@certificate.text_id == t.id ? "selected" : "" %>><%=t.shortdescription%></option>
+             <% end %>
+         <% end %>
+       </select>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn-success" %>
+  </div>
+<% end %>

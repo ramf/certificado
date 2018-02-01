@@ -14,7 +14,8 @@ pt-BR:
       text1: "Texto:"
       user: "Usuário"
       user1: "Usuários"
-      student: "Certificado Estudante"
+      student: "certificado aluno externo"
+      certificate: "certificado"
     attributes:
       agreement:
         email: 'E-mail do usuário:'
@@ -39,7 +40,13 @@ pt-BR:
         funcao: "Acesso"
       student:
         email: "E-mail do aluno:"
-        description: "Descrição"
+        description: "Descrição:"
         text: "Selecione o Texto:"
         name: "Nome:"
         student: "Estudante"
+      certificate:
+          name: "Matrícula:"
+          email: "E-mail:"
+          description: "Descrição:"
+          text: "Selecione o Texto:"
+          certificate: "Certificado"

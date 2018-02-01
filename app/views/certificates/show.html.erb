@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2> <%= @certificate.name %></h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+      <%= link_to t("app.edit"), edit_certificate_path(@certificate), class: "btn btn-danger" %> |
+      <%= link_to 'Voltar', certificates_path, class: "btn btn-success" %>
+    </div>
+  </div>
+
+<hr>
+
+<dl class"dl-horizontal">
+<dt>
+  <strong><%= t("activerecord.attributes.agreement.client_name") %></strong>
+</dt>
+  <dd> <%= @certificate.name %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
+<dt>
+  <strong>Email:</strong>
+</dt>
+  <dd> <%= @certificate.email %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
+<dt>
+  <strong>Descrição:</strong>
+</dt>
+  <dd> <%= @certificate.description %> </dd>
+</dl>
+
+<dl class="dl-horizontal">
+<% if @certificate.text != nil %>
+  <dt>
+  <strong><%= t("activerecord.models.text1") %></strong>
+</dt>
+  <dd><%= @certificate.text.description %></dd>
+</dl>
+</hr>
+<% end %>
