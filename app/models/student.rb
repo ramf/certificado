@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
 
-  has_many :user_students
-  has_many :users, through: :user_students
+  has_many :user_agreements
+  has_many :users, through: :user_agreements
 
 
  belongs_to :text

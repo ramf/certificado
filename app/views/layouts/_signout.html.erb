@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+<div class="signout">
+  <a href="#">Olá, <%= @nome_completo %></a> |
+  <%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
+</div>
+<% end %>

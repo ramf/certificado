@@ -24,11 +24,15 @@ class StudentsController < ApplicationController
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
     @student = Student.new
     @texts = Text.all
+    @user = User.new
+    authorize @user
   end
 
   # GET /students/1/edit
   def edit
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
+    @user = User.new
+    authorize @user
   end
 
   # POST /students
@@ -64,6 +68,8 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
+    @user = User.new
+    authorize @user
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Certificado excluído com sucesso.' }
@@ -86,6 +92,8 @@ class StudentsController < ApplicationController
   end
 
   def send_student
+    @user = User.new
+    authorize @user
 
     if @student != nil
       GenerateStudent::student(@student.name, @student.description,

@@ -20,6 +20,8 @@ class CertificatesController < ApplicationController
 
   # GET /certificates/new
   def new
+    @user = User.new
+    authorize @user
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
     @certificate = Certificate.new
     @texts = Text.all
@@ -27,13 +29,16 @@ class CertificatesController < ApplicationController
 
   # GET /certificates/1/edit
   def edit
+    @user = User.new
+    authorize @user
   end
 
   # POST /certificates
   # POST /certificates.json
   def create
+    @user = User.new
+    authorize @user
     @certificate = Certificate.new(certificate_params)
-
     respond_to do |format|
       if @certificate.save
         format.html { redirect_to @certificate, notice: 'Certificado criado com sucesso.' }
@@ -62,6 +67,9 @@ class CertificatesController < ApplicationController
   # DELETE /certificates/1
   # DELETE /certificates/1.json
   def destroy
+    @user = User.new
+    authorize @user
+
     @certificate.destroy
     respond_to do |format|
       format.html { redirect_to certificates_url, notice: 'Certificado excluído com sucesso.' }
