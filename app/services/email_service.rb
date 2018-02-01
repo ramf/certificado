@@ -15,12 +15,7 @@ class EmailService
      html_part do
       content_type 'text/html; charset=UTF-8'
       url = "http://localhost:3000/agreements/#{agreement.id}/export"
-<<<<<<< HEAD
-      body "<p> Olá #{agreement.client_name}, seu certificado está pronto, <a href='#{url}'>acesse aqui</a>
-       para baixar ou imprimir. Caso seja usuário externo, clique no PDF em anexo para baixar.</p>"
-=======
       body "<p> Olá #{agreement.client_name}, seu certificado está pronto! Clique no PDF em anexo para baixar.</p>"
->>>>>>> DeviseLdap
      end
   end
     puts mail.to_s

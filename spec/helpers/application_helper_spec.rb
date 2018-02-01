@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.drescribe ApplicarionHelper, type: :helper do
+RSpec.drescribe ApplicationHelper, type: :helper do
   describe ".handle_field" do
     it "should return a field if exists" do
       agreement = create(:agreement)

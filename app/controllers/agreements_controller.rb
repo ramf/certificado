@@ -37,11 +37,11 @@ class AgreementsController < ApplicationController
 
     @user = User.new
     authorize @user
-<<<<<<< HEAD
-    
-=======
+end
 
->>>>>>> DeviseLdap
+
+
+def DeviseLdap
     @texts = Text.all
   end
 
