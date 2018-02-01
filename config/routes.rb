@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   resources :certificates do
     member do
       get 'export'
@@ -39,7 +41,7 @@ end
   resources :spendings
   resources :spendings
 # /spendings_export
-  root "agreements#index"
+
   get '/spending_export' => 'spendings#export'
 
  resources :agreements do

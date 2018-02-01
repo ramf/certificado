@@ -34,10 +34,14 @@
         <td><%= certificate.email %></td>
         <td><%= certificate.description %></td>
         <td><%= link_to fa_icon("eye", title: "Visualizar"), certificate, class: "btn btn-primary" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_certificate_path(certificate), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_card_certificate_path(certificate), class: "btn btn-success" %></td>
+        <% end %>
         <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_certificate_path(certificate), target: "_blank", class: "btn btn-warning" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("trash-o", title: "Excluir"), certificate, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

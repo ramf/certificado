@@ -1,6 +1,7 @@
 require 'email_service.rb'
 
 class AgreementsController < ApplicationController
+
   # No Before Action nós adicionamos também o export para que ele consiga pegar o agreement correto
   before_action :set_agreement, only: [:show, :edit, :update, :destroy, :export, :send_email]
   # Nós incluimos aqui a lib que vamos criar chamada generate_pdf.rb
@@ -18,7 +19,7 @@ class AgreementsController < ApplicationController
   # GET /agreements/1
   # GET /agreements/1.json
   def show
-
+@nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
   end
 
   # GET /agreements/new
@@ -34,16 +35,10 @@ class AgreementsController < ApplicationController
 
   # GET /agreements/1/edit
   def edit
-
     @user = User.new
     authorize @user
 end
 
-
-
-def DeviseLdap
-    @texts = Text.all
-  end
 
   # POST /agreements
   # POST /agreements.json

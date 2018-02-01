@@ -33,10 +33,14 @@
         <td><%= agreement.description %></td>
         <td><%= agreement.email %></td>
         <td><%= link_to fa_icon("eye", title: "Visualizar"), agreement, class: "btn btn-primary" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_agreement_path(agreement), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_email_agreement_path(agreement), class: "btn btn-success" %></td>
+        <% end %>
         <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_agreement_path(agreement), target: "_blank", class: "btn btn-warning" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("trash-o", title: "Excluir"), agreement, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -16,6 +16,7 @@ class CertificatesController < ApplicationController
   # GET /certificates/1
   # GET /certificates/1.json
   def show
+    @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
   end
 
   # GET /certificates/new
@@ -37,7 +38,7 @@ class CertificatesController < ApplicationController
   # POST /certificates.json
   def create
     @user = User.new
-    authorize @user
+
     @certificate = Certificate.new(certificate_params)
     respond_to do |format|
       if @certificate.save
@@ -78,9 +79,9 @@ class CertificatesController < ApplicationController
   end
 
   def export
-    @user = User.new
-    authorize @user
-    @texts = Text.all
+
+
+    
 
     if @certificate.text != nil
       @nome = Devise::LDAP::Adapter.get_ldap_param(@certificate.name,"cn").first.force_encoding("utf-8")

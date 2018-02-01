@@ -34,10 +34,14 @@
         <td><%= student.email %></td>
         <td><%= student.description %></td>
         <td><%= link_to fa_icon("eye", title: "Visualizar"), student, class: "btn btn-primary" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_student_path(student), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_student_student_path(student), class: "btn btn-success" %></td>
-        <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_student_path(student), target: "_blank", class: "btn btn-warning" %></td>        
+        <% end %>
+        <td><%= link_to fa_icon("file-pdf-o", title: "Abrir PDF"), export_student_path(student), target: "_blank", class: "btn btn-warning" %></td>
+        <% if current_user.full_access? %>
         <td><%= link_to fa_icon("trash-o", title: "Excluir"), student, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
