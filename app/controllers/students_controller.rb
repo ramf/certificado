@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
     @students = Student.all
     @q = Student.ransack(params[:q])
-    @students = @q.result.order(:name).page(params[:page]).per(15)
+    @students = @q.result.order(:name).page(params[:page]).per(15)    
   end
 
   # GET /students/1

@@ -9,7 +9,7 @@ class CertificatesController < ApplicationController
   def index
     @certificates = Certificate.all
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
-    @q = Certificate.ransack(params[:q])
+    @q = Certificate.ransack(params[:q] || {"name_cont"=>current_user.username})
     @certificates = @q.result.order(:name).page(params[:page]).per(15)
   end
 
@@ -79,9 +79,6 @@ class CertificatesController < ApplicationController
   end
 
   def export
-
-
-    
 
     if @certificate.text != nil
       @nome = Devise::LDAP::Adapter.get_ldap_param(@certificate.name,"cn").first.force_encoding("utf-8")

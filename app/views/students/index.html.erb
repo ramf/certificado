@@ -1,5 +1,12 @@
+<%= render partial: "layouts/menu"%>
+<br>
+<br>
+<br>
+<br>
+
 <div class="search">
 <%= search_form_for @q do |f| %>
+  <% if current_user.full_access? %>
     <%= f.search_field :name_cont, class: "form-control", placeholder: 'Pesquisar por nome' %>
   </div>
   <div class="buttons">
@@ -9,7 +16,9 @@
     <%= link_to students_path, title: "Limpar pesquisa", class: "btn btn-danger" do %>
       <%= fa_icon("close") %>
     <% end %>
+    <% end %>
     </div>
+
 <br>
 
 <h1>Certificados criados dos alunos externos</h1>
@@ -33,8 +42,8 @@
         <td><%= student.name %></td>
         <td><%= student.email %></td>
         <td><%= student.description %></td>
-        <td><%= link_to fa_icon("eye", title: "Visualizar"), student, class: "btn btn-primary" %></td>
         <% if current_user.full_access? %>
+        <td><%= link_to fa_icon("eye", title: "Visualizar"), student, class: "btn btn-primary" %></td>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_student_path(student), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_student_student_path(student), class: "btn btn-success" %></td>
         <% end %>
@@ -48,7 +57,10 @@
 </table>
 
 <br>
+<% if current_user.full_access? %>
     <%= link_to fa_icon("certificate", text: "Novo Certificado"), new_student_path, class: "btn btn-success" %>
+    <% end %>
+    <%= link_to fa_icon("", text: "Voltar ao menu principal"), root_path, class: "btn btn-success" %>
   </div>
 </div>
 <% end %>

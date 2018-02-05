@@ -1,13 +1,18 @@
+<!DOCTYPE html>
+<html>
 <% if user_signed_in? %>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-header">
         <ul><img alt="image" id="logo-header" src="<%= image_url 'logo.png' %>"/></ul>
       </div>
-
+  <body>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <a class="navbar-brand" href="#"><%= t("app.appname") %></a>
         <ul class="nav navbar-nav">
+          <li><%= link_to fa_icon("home", text: "Página Inicial"), root_path %> </li>
+          <% if current_user.full_access? %>
           <li><%= link_to fa_icon("certificate", text: "Certificados FCB"), agreements_path %> </li>
+          <% end %>
           <li><%= link_to fa_icon("users", text: "Alunos Externos"), students_path %></li>
           <li><%= link_to fa_icon("address-book", text: "Certificados TJ"), certificates_path %></li>
           <li><%= link_to fa_icon("file-text-o", text: "Textos"), texts_path %></li>
@@ -15,5 +20,14 @@
           <li><%= link_to fa_icon("graduation-cap", text: "Certificados antigos"), "http://tjce025/sgc2/", target: "_blank" %></li>
           </ul>
       </div>
+      <% if user_signed_in? %>
+      <div class="signout">
+        <a href="#">Olá, <%= @nome_completo %></a> |
+        <%= link_to fa_icon("sign-out", text: "Sair"), destroy_user_session_path, method: :delete %></li>
+      </div>
+      <% end %>
+
     </nav>
+    </body>
 <% end %>
+</html>

@@ -10,9 +10,10 @@ class AgreementsController < ApplicationController
   # GET /agreements
   # GET /agreements.json
   def index
-    @agreements = Agreement.all
+    puts params[:q].inspect
+    #@agreements = Agreement.where(["client_name = ?", current_user.username])
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
-    @q = Agreement.ransack(params[:q])
+    @q = Agreement.ransack(params[:q] || {"client_name_or_name_cont"=>current_user.username})
     @agreements = @q.result.order(:client_name, :description).page(params[:page]).per(15)
   end
 
@@ -90,8 +91,6 @@ end
 
   # Criamos este método que vai chamar nossa lib para gerar o PDF e depois redirecionar o user para o arquivo PDF
   def export
-    @user = User.new
-    authorize @user
 
     if @agreement.text != nil
        @nome = Devise::LDAP::Adapter.get_ldap_param(@agreement.client_name,"cn").first.force_encoding("utf-8")

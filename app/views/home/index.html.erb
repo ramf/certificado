@@ -1,3 +1,4 @@
+<%= render partial: "layouts/logoutindex"%>
 <div class="inicio"> <h1> Bem-Vindo(a) ao SiN - CERTIFIQUE-SE</h1> </div>
 
 <div class="panel panel-default">
@@ -7,10 +8,16 @@
 </div>
 </div>
 
-
+<center>
 <select name="forma" onchange="location = this.value">
   <option value="" selected>Escolha a unidade</option>
   <option value="agreements#index">Fórum Clóvis Beviláqua</option>
   <option value="certificates#index">Tribunal de Justiça</option>
+  <% if current_user.full_access? %>
   <option value="students#index">Alunos Externos</option>
+  <% end %>
 </select>
+
+</center>
+
+<img alt="image" id="logoindex" src="<%= image_url 'brasaoce.jpg'  %>"/>

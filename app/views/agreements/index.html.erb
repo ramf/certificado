@@ -1,6 +1,13 @@
+<%= render partial: "layouts/menu"%>
+<br>
+<br>
+<br>
+<br>
+<%= render 'layouts/messages' %>
 <div class="search">
 <%= search_form_for @q do |f| %>
-    <%= f.search_field :client_name_or_name_cont, class: "form-control", placeholder: 'Pesquisar por matrícula' %>
+  <% if current_user.full_access? %>
+    <%= f.search_field :client_name_or_description_cont, class: "form-control", placeholder: 'Pesquisar por matrícula' %>
   </div>
   <div class="buttons">
     <%= button_tag type: "submit", title: "Pesquisar", class: "btn btn-success " do %>
@@ -8,6 +15,7 @@
     <% end %>
     <%= link_to agreements_path, title: "Limpar pesquisa", class: "btn btn-danger" do %>
       <%= fa_icon("close") %>
+    <% end %>
     <% end %>
     </div>
 <br>
@@ -32,8 +40,8 @@
         <td><%= agreement.client_name %></td>
         <td><%= agreement.description %></td>
         <td><%= agreement.email %></td>
-        <td><%= link_to fa_icon("eye", title: "Visualizar"), agreement, class: "btn btn-primary" %></td>
         <% if current_user.full_access? %>
+        <td><%= link_to fa_icon("eye", title: "Visualizar"), agreement, class: "btn btn-primary" %></td>
         <td><%= link_to fa_icon("pencil-square-o", title: "Editar"), edit_agreement_path(agreement), class: "btn btn-info" %></td>
         <td><%= link_to fa_icon("envelope", title: "Enviar por e-mail"), send_email_agreement_path(agreement), class: "btn btn-success" %></td>
         <% end %>
@@ -50,7 +58,10 @@
 <div class="col-md-12">
 
     </div>
+<% if current_user.full_access? %>
     <%= link_to fa_icon("certificate", text: "Novo Certificado"), new_agreement_path, class: "btn btn-success" %>
+    <% end %>
+    <%= link_to fa_icon("", text: "Voltar ao menu principal"), root_path, class: "btn btn-success" %>
   </div>
 </div>
 <% end %>
