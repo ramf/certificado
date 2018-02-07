@@ -1,0 +1,7 @@
+pt-BR:
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última Página &raquo;"
+      previous: "&lsaquo; Página Anterior"
+      next: "Próxima Página &rsaquo;"
