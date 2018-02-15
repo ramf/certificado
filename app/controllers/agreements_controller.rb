@@ -14,7 +14,7 @@ class AgreementsController < ApplicationController
     #@agreements = Agreement.where(["client_name = ?", current_user.username])
     @nome_completo = Devise::LDAP::Adapter.get_ldap_param(current_user.username,"cn").first.force_encoding("utf-8")
     @q = Agreement.ransack(params[:q] || {"client_name_or_name_cont"=>current_user.username})
-    @agreements = @q.result.order(:client_name, :description).page(params[:page]).per(3)
+    @agreements = @q.result.order(:client_name, :description).page(params[:page]).per(15)
   end
 
   # GET /agreements/1

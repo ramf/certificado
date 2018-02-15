@@ -9,7 +9,7 @@ module GeneratePdf
     :page_layout => :landscape,
     # Define a margem do documento
     :margin      => [40, 75],
-    :background  => "lib/imagens/fundon.jpg"
+    :background  => "lib/imagens/fcb.png"
     #:image => "lib/imagens/fundon.jpg"
   }
 
